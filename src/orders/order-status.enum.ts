@@ -1,0 +1,47 @@
+/**
+ * Canonical Order States for The Dry Cleaner.
+ * Source of truth: PRD.md §8.1, §8.2; TECH_STACK.md §7.2; TODO.md TASK-009.
+ */
+export enum OrderStatus {
+  // Pre-fulfillment states
+  DRAFT = 'DRAFT',
+  PAYMENT_PENDING = 'PAYMENT_PENDING',
+  PAYMENT_FAILED = 'PAYMENT_FAILED',
+  CONFIRMED = 'CONFIRMED',
+
+  // Pickup phase
+  PICKUP_SCHEDULED = 'PICKUP_SCHEDULED',
+  PICKED_UP = 'PICKED_UP',
+  PICKUP_FAILED = 'PICKUP_FAILED',
+
+  // Facility & Cleaning lifecycle
+  RECEIVED_AT_FACILITY = 'RECEIVED_AT_FACILITY',
+  ASSESSMENT = 'ASSESSMENT',
+  CLEANING_IN_PROGRESS = 'CLEANING_IN_PROGRESS',
+  QUALITY_CHECK = 'QUALITY_CHECK',
+  REWORK_REQUIRED = 'REWORK_REQUIRED',
+
+  // Delivery phase
+  READY_FOR_DELIVERY = 'READY_FOR_DELIVERY',
+  OUT_FOR_DELIVERY = 'OUT_FOR_DELIVERY',
+  DELIVERED = 'DELIVERED',
+  DELIVERY_FAILED = 'DELIVERY_FAILED',
+
+  // Alternate / Exception states
+  RESCHEDULED = 'RESCHEDULED',
+  CANCELLED = 'CANCELLED',
+}
+
+/**
+ * Actor Roles with transition authorization.
+ */
+export enum OrderActorRole {
+  CUSTOMER = 'CUSTOMER',
+  AGENT = 'AGENT',
+  FACILITY_STAFF = 'FACILITY_STAFF',
+  QC_OPERATOR = 'QC_OPERATOR',
+  OPERATIONS = 'OPERATIONS',
+  ADMIN = 'ADMIN',
+  SUPPORT = 'SUPPORT',
+  SYSTEM = 'SYSTEM',
+}
